@@ -1,3 +1,16 @@
+/* fix scroll */
+.row,
+.form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+}
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+footer,
+header {
+  margin: 10px;
+  clear: both;
+  background: #CCC;
+  padding: 10px;
 }

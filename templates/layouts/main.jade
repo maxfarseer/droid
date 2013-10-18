@@ -2,7 +2,7 @@ doctype 5
 html
 	head
 		block title
-			title Привет
+			title Droid 4 app
 
 		link(rel="stylesheet", href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css")
 		link(rel="stylesheet", href="/css/app.css")
@@ -10,5 +10,8 @@ html
 		script(src="/vendor/bower_components/bootstrap/dist/js/bootstrap.min.js")
 
 	body
+		include ../partials/header
+
 		block content
-		block footer
+		
+		include ../partials/footer
