@@ -1,11 +1,14 @@
+var Contact = require('../models/contact').Contact;
+
 exports.get = function(req,res) {
-	res.render('index', {
-		title: 'People',
-		users: [
-			{name: 'User #1'},
-			{name: 'User #2'},
-			{name: 'User #3'},
-			{name: 'User #4'}
-		]
+
+	Contact.find({}, function(err,contacts) {
+		if (err) next(err);
+		console.log(contacts);
+
+		res.render('index', {
+			title: 'Contacts',
+			contacts: contacts
+		});
 	});
 }

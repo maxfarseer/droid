@@ -7,7 +7,8 @@ var http = require('http');
 var path = require('path');
 var config = require('./config');
 var log = require('./libs/log')(module);
-var HttpError = require('./middleware/sendHttpError');
+var mongoose = require('./libs/mongoose');
+var HttpError = require('./error').HttpError;
 
 
 var app = express();

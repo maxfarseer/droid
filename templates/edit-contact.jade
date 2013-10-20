@@ -1,0 +1,24 @@
+extends layouts/main
+
+block content
+	.row
+		.col-xs-6
+			h2 #{title}
+
+	form.form-horizontal(role="form",
+						method="POST")
+
+		.form-group
+			label.col-xs-2(for="contact-name") Имя
+			.col-xs-3
+				input#contact-name.form-control(type="text")
+
+		.form-group
+			label.col-xs-2(for="phone-number") Номер телефона
+			.col-xs-3
+				input#phone-number.form-control(type="text")
+
+		.col-xs-3
+			button.btn.btn-default.btn-edit-contact(type="submit") Сохранить
+
+	script(src="/js/cl-edit-contact.js")
