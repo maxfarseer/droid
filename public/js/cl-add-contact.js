@@ -8,10 +8,12 @@ $('.btn-edit-contact').on('click', function(e) {
 		url: '/add-contact',
 		data: contact,
 		error: function(data) {
-			new Tip({type: 'err', text: 'server error'});
+			// ...
 		},
 		success: function(data) {
-			if (data.type == 'err') {
+			if (data.status == 'err') {
+				new Tip(data);
+			} else {
 				new Tip(data);
 			}
 		}

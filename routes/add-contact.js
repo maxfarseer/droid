@@ -9,22 +9,20 @@ exports.post = function(req,res) {
 		contactName: req.body.contactName,
 		phoneNumber: req.body.phoneNumber
 	});
+	console.log(newContact);
 
 	newContact.save(function(err,results) {
-		// TODO: добавление не уникального юзера - предупреждение или ошибку
-		if (err) {
-			//...
-		}
 		console.log(arguments);
+		
 		if (!results) {
 			res.send({
-					type: 'err',
-					text: 'Имя контакта должно быть уникальным'
+					status: 'err',
+					text: 'Имя контакта и телефон должны быть уникальными'
 				});
 		} else {
 			res.send({
-				contactName: req.body.contactName,
-				phoneNumber: req.body.phoneNumber
+				status: '200',
+				text: 'контакт ' + req.body.contactName + ' добавлен'
 			});
 		}
 	});

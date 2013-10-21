@@ -8,7 +8,7 @@ $('.btn-edit-contact').on('click', function(e) {
 		url: '/edit-contact',
 		data: contact,
 		success: function(data) {
-			console.log(data);
+			new Tip(data);
 		}
 	});
 	e.preventDefault();

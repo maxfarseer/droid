@@ -4,4 +4,5 @@
 	.col-xs-1
 		a(href="/edit-contact/#{val.contactName}") Edit
 	.col-xs-1
-		a.js-delete-contact(href="#") Delete
+		a.js-delete-contact(href="/",
+							data-contact-name="#{val.contactName}") Delete

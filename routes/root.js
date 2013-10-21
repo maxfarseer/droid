@@ -10,4 +10,4 @@ exports.get = function(req,res) {
 			contacts: contacts
 		});
 	});
-}
+};

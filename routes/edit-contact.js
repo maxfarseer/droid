@@ -5,18 +5,24 @@ exports.get = function(req,res) {
 }
 
 exports.put = function(req, res) {
+	//TODO: пустое поле телефона рушит сервак (!)
 
 	Contact.findOne({contactName: req.body.contactName}, function(err, contact) {
 		if (err) throw err;
 		
 		if (!contact) {
-			res.json('Нет такого пользователя');
+			// alert нет такого юзера, если поле имени будет разлочено
 		} else {
 			contact.phoneNumber = req.body.phoneNumber;
+			
 			contact.save(function(err,contact) {
-				if (err) return next(err);
-				console.log(contact);
-			});	
+				if (err) throw err;
+			});
+
+			res.send({
+				status: '200',
+				text: 'Номер телефона изменен'
+			});
 		}
 	});
 };
