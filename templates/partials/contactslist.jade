@@ -2,6 +2,6 @@
 	.col-xs-4
 		p #{val.contactName} | #{val.phoneNumber}
 	.col-xs-1
-		a(href="/edit-contact") Edit
+		a(href="/edit-contact/#{val.contactName}") Edit
 	.col-xs-1
 		a.js-delete-contact(href="#") Delete

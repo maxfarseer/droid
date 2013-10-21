@@ -1,28 +1,8 @@
 var Contact = require('../models/contact').Contact;
 
 exports.get = function(req,res) {
-	res.render('edit-contact', {title: 'Edit contact'});
+	res.render('edit-contact', {title: 'Edit contact', contactName: req.params.contactName});
 }
-
-exports.post = function(req,res) {
-	var newContact = new Contact({
-		contactName: req.body.contactName,
-		phoneNumber: req.body.phoneNumber
-	});
-
-	newContact.save(function(err,results) {
-		// TODO: добавление не уникального юзера error в ajax
-		if (err) {
-			//...
-		}
-		console.log(results);
-	});
-
-	res.send({
-		contactName: req.body.contactName,
-		phoneNumber: req.body.phoneNumber
-	});
-};
 
 exports.put = function(req, res) {
 

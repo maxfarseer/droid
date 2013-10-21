@@ -2,18 +2,18 @@ extends layouts/main
 
 block content
 	.row
+		#tip.col-xs-6.text-center
+	.row
 		.col-xs-6
 			h2 #{title}
 
 	form.form-horizontal(role="form",
-						method="PUT")
+						method="POST")
 
 		.form-group
 			label.col-xs-2(for="contact-name") Имя
 			.col-xs-3
-				input#contact-name.form-control(type="text",
-												value="#{contactName}",
-												disabled)
+				input#contact-name.form-control(type="text")
 
 		.form-group
 			label.col-xs-2(for="phone-number") Номер телефона
@@ -23,4 +23,4 @@ block content
 		.col-xs-3
 			button.btn.btn-default.btn-edit-contact(type="submit") Сохранить
 
-	script(src="/js/cl-edit-contact.js")
+	script(src="/js/cl-add-contact.js")

@@ -8,8 +8,13 @@ block header
 
 block content
 	.row
+		#tip.col-xs-6.text-center
+	.row
 		.col-xs-6.text-center
 			h2 #{title}
+	.row
+		.col-xs-6.text-center
+			a(href="/add-contact") Добавить контакт
 	each val,key in contacts
 		include partials/contactslist
 
