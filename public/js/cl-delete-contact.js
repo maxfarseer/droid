@@ -16,7 +16,6 @@ $('.js-delete-contact').on('click', function(e) {
 				new Tip(data);
 			} else {
 				new Tip(data);
-				console.log($(this));
 				$row.closest('.row').css({backgroundColor: '#FFFF66'}).fadeOut(300);
 			}
 		}

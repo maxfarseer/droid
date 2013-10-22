@@ -9,7 +9,20 @@ var config = require('./config');
 var log = require('./libs/log')(module);
 var mongoose = require('./libs/mongoose');
 var HttpError = require('./error').HttpError;
+var sockjs = require('sockjs');
 
+// 1. Echo sockjs server
+var sockjs_opts = {sockjs_url: "http://cdn.sockjs.org/sockjs-0.3.min.js"};
+var sockjs_echo = sockjs.createServer(sockjs_opts);
+
+sockjs_echo.on('connection', function(conn) {
+// https://github.com/sockjs/sockjs-client/blob/1bde9be0c67563beb57f8e90554eb9e84d0245fd/tests/sockjs_app.js#L44	
+    conn.on('data', function(message) {
+    	console.log(message);
+        conn.write(message + ' from ' + conn.id);
+    });
+
+});
 
 var app = express();
 
@@ -50,6 +63,9 @@ app.use(function(err, req, res, next) {
 });
 
 var server = http.createServer(app);
+
+sockjs_echo.installHandlers(server, {prefix:'/echo'});
+console.log(' [*] Listening on droid4 app' );
 
 server.listen(config.get('port'), function() {
 	log.info('app DROID 4 listenning port: ' + config.get('port'));
