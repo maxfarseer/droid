@@ -1,6 +1,10 @@
 .row
-	.col-xs-4
+	.col-xs-3
 		p #{val.contactName} | #{val.phoneNumber}
+	.col-xs-1
+		a(href="/send-message/",
+		  data-send-message-to="#{val.contactName}").js-send-message
+			<span class="glyphicon glyphicon-envelope"></span>
 	.col-xs-1
 		a(href="/edit-contact/#{val.contactName}") Edit
 	.col-xs-1
